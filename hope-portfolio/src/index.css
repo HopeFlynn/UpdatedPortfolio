@@ -1,0 +1,540 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #2D1B3D;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #2D1B3D;
+  /* Ensure consistent background */
+  color: white;
+  /* Ensure default text color is white/light */
+  overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  background: linear-gradient(to right, #ffffff, #cfd9df);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+  color: white;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Certificate Grid Layout */
+.certificates-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+/* Flip Card Styles */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  flex: 1 1 350px;
+  /* max-width removed to allow full spread */
+  height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+
+
+/* Media query removed as auto-fit handles responsiveness */
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+/* Flip Card Styles - Handled above */
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.flip-card-front {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+}
+
+.flip-card-back {
+  background: rgba(45, 27, 61, 0.9);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Soft Glow Background Animation */
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(30px, -50px) rotate(10deg);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  z-index: 0;
+  animation: float 10s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #db2777, #7c3aed);
+  /* Pink to Purple */
+  top: -100px;
+  left: -100px;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #f472b6, #ec4899);
+  /* Pink variations */
+  bottom: 50px;
+  right: -50px;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #fbcfe8, #f472b6);
+  /* Soft pink */
+  top: 40%;
+  left: 40%;
+  opacity: 0.6;
+  animation-duration: 15s;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navbar Responsiveness */
+@media (max-width: 900px) {
+  .navbar-container {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    top: 10px !important;
+    width: 100% !important;
+    align-items: center !important;
+    pointer-events: none !important;
+  }
+
+  .nav-links-container {
+    width: 95% !important;
+    max-width: none !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    padding: 0.5rem 1rem !important;
+    pointer-events: auto !important;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .nav-links-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .resume-button-container {
+    position: static !important;
+    right: auto !important;
+    width: auto !important;
+    margin-top: 5px !important;
+    display: flex !important;
+    justify-content: center !important;
+    pointer-events: auto !important;
+  }
+
+  .nav-link {
+    font-size: 0.85rem !important;
+    padding: 0.4rem 0.6rem !important;
+  }
+}/* Hero Section Styles & Responsiveness */
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 0 5%;
+    background: #2D1B3D;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rotating-badge-container {
+    position: absolute;
+    top: 15%;
+    left: 2%;
+    z-index: 30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+}
+
+.hero-left-content {
+    flex: 1 1 50%;
+    z-index: 20;
+    text-align: left;
+    padding-left: 5%;
+    animation: fadeInLeft 1.5s ease-out;
+    align-self: flex-end;
+    padding-bottom: 8%;
+}
+
+.terminal-container {
+    margin-top: 2rem;
+    background: rgba(20, 20, 35, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(244, 114, 182, 0.3);
+    font-family: 'Fira Code', 'Courier New', monospace;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 2s ease-out;
+    font-size: 0.9rem;
+}
+
+.hero-right-content {
+    flex: 1 1 50%;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    z-index: 10;
+}
+
+.hero-image-container {
+    height: 92%;
+    width: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    animation: fadeInRight 1.5s ease-out;
+}
+
+.social-links-row {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 30;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.resume-floating-btn {
+    position: absolute;
+    top: 15%;
+    right: 20%;
+    z-index: 20;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(90deg, #f472b6, #a78bfa);
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
+    transition: transform 0.3s;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 80px !important;
+        height: auto !important;
+        min-height: 100vh;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .rotating-badge-container {
+        top: 2% !important;
+        left: 50% !important;
+        transform: translateX(-50%);
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .rotating-badge-container svg {
+       /* Scale down text if needed */
+    }
+
+    .hero-left-content {
+        width: 100% !important;
+        padding: 0 !important;
+        order: 2; /* Text below image? or above? Let's try above for terminal access */
+        order: 1; /* Terminal below image might be better visually if image is header-like */
+        align-self: center !important;
+        margin-bottom: 2rem;
+    }
+
+    .terminal-container {
+        margin: 1rem auto !important;
+        max-width: 95% !important;
+    }
+
+    .hero-right-content {
+        width: 100% !important;
+        height: 400px !important; /* Fixed height for image area on mobile */
+        order: 0; /* Image on top */
+        position: relative !important;
+        justify-content: center !important;
+        align-items: flex-end !important;
+        flex: none !important;
+    }
+
+    .hero-image-container {
+        height: 100% !important;
+        justify-content: center !important;
+    }
+
+    .hero-image-container img {
+        width: auto !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+    }
+
+    .social-links-row {
+        position: relative !important;
+        bottom: -20px !important; /* Just below image */
+        margin-bottom: 1rem;
+    }
+
+    .resume-floating-btn {
+        top: 10px !important;
+        right: 10px !important;
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+}
+
