@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
-
 :root {
   font-family: 'Outfit', sans-serif;
   line-height: 1.5;
@@ -364,177 +362,183 @@ section {
     font-size: 0.85rem !important;
     padding: 0.4rem 0.6rem !important;
   }
-}/* Hero Section Styles & Responsiveness */
+}
+
+/* Hero Section Styles & Responsiveness */
 .hero-section {
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    padding: 0 5%;
-    background: #2D1B3D;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 0 5%;
+  background: #2D1B3D;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .rotating-badge-container {
-    position: absolute;
-    top: 15%;
-    left: 2%;
-    z-index: 30;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    height: 180px;
+  position: absolute;
+  top: 15%;
+  left: 2%;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 180px;
 }
 
 .hero-left-content {
-    flex: 1 1 50%;
-    z-index: 20;
-    text-align: left;
-    padding-left: 5%;
-    animation: fadeInLeft 1.5s ease-out;
-    align-self: flex-end;
-    padding-bottom: 8%;
+  flex: 1 1 50%;
+  z-index: 20;
+  text-align: left;
+  padding-left: 5%;
+  animation: fadeInLeft 1.5s ease-out;
+  align-self: flex-end;
+  padding-bottom: 8%;
 }
 
 .terminal-container {
-    margin-top: 2rem;
-    background: rgba(20, 20, 35, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid rgba(244, 114, 182, 0.3);
-    font-family: 'Fira Code', 'Courier New', monospace;
-    max-width: 450px;
-    width: 100%;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 2s ease-out;
-    font-size: 0.9rem;
+  margin-top: 2rem;
+  background: rgba(20, 20, 35, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(244, 114, 182, 0.3);
+  font-family: 'Fira Code', 'Courier New', monospace;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 2s ease-out;
+  font-size: 0.9rem;
 }
 
 .hero-right-content {
-    flex: 1 1 50%;
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    z-index: 10;
+  flex: 1 1 50%;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 10;
 }
 
 .hero-image-container {
-    height: 92%;
-    width: auto;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    animation: fadeInRight 1.5s ease-out;
+  height: 92%;
+  width: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  animation: fadeInRight 1.5s ease-out;
 }
 
 .social-links-row {
-    position: absolute;
-    bottom: 5%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    z-index: 30;
-    flex-wrap: wrap;
-    padding: 0 1rem;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 30;
+  flex-wrap: wrap;
+  padding: 0 1rem;
 }
 
 .resume-floating-btn {
-    position: absolute;
-    top: 15%;
-    right: 20%;
-    z-index: 20;
-    padding: 0.6rem 1.2rem;
-    background: linear-gradient(90deg, #f472b6, #a78bfa);
-    border-radius: 25px;
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
-    transition: transform 0.3s;
-    animation: float 6s ease-in-out infinite;
+  position: absolute;
+  top: 15%;
+  right: 20%;
+  z-index: 20;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(90deg, #f472b6, #a78bfa);
+  border-radius: 25px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
+  transition: transform 0.3s;
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Responsiveness */
 @media (max-width: 900px) {
-    .hero-section {
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 80px !important;
-        height: auto !important;
-        min-height: 100vh;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-    }
+  .hero-section {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 80px !important;
+    height: auto !important;
+    min-height: 100vh;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 
-    .rotating-badge-container {
-        top: 2% !important;
-        left: 50% !important;
-        transform: translateX(-50%);
-        width: 100px !important;
-        height: 100px !important;
-    }
-    
-    .rotating-badge-container svg {
-       /* Scale down text if needed */
-    }
+  .rotating-badge-container {
+    top: 2% !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    width: 100px !important;
+    height: 100px !important;
+  }
 
-    .hero-left-content {
-        width: 100% !important;
-        padding: 0 !important;
-        order: 2; /* Text below image? or above? Let's try above for terminal access */
-        order: 1; /* Terminal below image might be better visually if image is header-like */
-        align-self: center !important;
-        margin-bottom: 2rem;
-    }
+  .rotating-badge-container svg {
+    /* Scale down text if needed */
+  }
 
-    .terminal-container {
-        margin: 1rem auto !important;
-        max-width: 95% !important;
-    }
+  .hero-left-content {
+    width: 100% !important;
+    padding: 0 !important;
+    order: 2;
+    /* Text below image? or above? Let's try above for terminal access */
+    order: 1;
+    /* Terminal below image might be better visually if image is header-like */
+    align-self: center !important;
+    margin-bottom: 2rem;
+  }
 
-    .hero-right-content {
-        width: 100% !important;
-        height: 400px !important; /* Fixed height for image area on mobile */
-        order: 0; /* Image on top */
-        position: relative !important;
-        justify-content: center !important;
-        align-items: flex-end !important;
-        flex: none !important;
-    }
+  .terminal-container {
+    margin: 1rem auto !important;
+    max-width: 95% !important;
+  }
 
-    .hero-image-container {
-        height: 100% !important;
-        justify-content: center !important;
-    }
+  .hero-right-content {
+    width: 100% !important;
+    height: 400px !important;
+    /* Fixed height for image area on mobile */
+    order: 0;
+    /* Image on top */
+    position: relative !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    flex: none !important;
+  }
 
-    .hero-image-container img {
-        width: auto !important;
-        max-width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important;
-    }
+  .hero-image-container {
+    height: 100% !important;
+    justify-content: center !important;
+  }
 
-    .social-links-row {
-        position: relative !important;
-        bottom: -20px !important; /* Just below image */
-        margin-bottom: 1rem;
-    }
+  .hero-image-container img {
+    width: auto !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
 
-    .resume-floating-btn {
-        top: 10px !important;
-        right: 10px !important;
-        font-size: 0.8rem !important;
-        padding: 0.4rem 0.8rem !important;
-    }
+  .social-links-row {
+    position: relative !important;
+    bottom: -20px !important;
+    /* Just below image */
+    margin-bottom: 1rem;
+  }
+
+  .resume-floating-btn {
+    top: 10px !important;
+    right: 10px !important;
+    font-size: 0.8rem !important;
+    padding: 0.4rem 0.8rem !important;
+  }
 }
-

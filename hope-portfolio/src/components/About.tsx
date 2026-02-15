@@ -159,7 +159,7 @@ const About: React.FC = () => {
                         overflow: 'hidden',
                         boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
                     }}>
-                        <img src="/images/mee.jpg" alt="Profile Back" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                        <img src="/images/mee.jpg" alt="Profile Back" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                     </div>
 
                     {/* Front Image (Bottom Right) */}
@@ -175,7 +175,7 @@ const About: React.FC = () => {
                         boxShadow: '0 25px 50px rgba(0,0,0,0.5)',
                         border: '4px solid rgba(255, 255, 255, 0.1)'
                     }}>
-                        <img src="/images/profile.png" alt="Profile Front" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                        <img src="/images/profile.png" alt="Profile Front" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                     </div>
                 </div>
 

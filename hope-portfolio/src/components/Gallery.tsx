@@ -190,6 +190,8 @@ const Gallery: React.FC = () => {
                                     <img
                                         src={img.src}
                                         alt={`${gallerySections[activeSection].title} item ${imgIndex + 1}`}
+                                        loading="lazy"
+                                        decoding="async"
                                         style={{
                                             width: '100%',
                                             height: '100%',

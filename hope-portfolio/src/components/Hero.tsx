@@ -325,6 +325,8 @@ const Hero: React.FC = () => {
                     <img
                         src="/images/profile.png"
                         alt="Hope Mwangi"
+                        decoding="async"
+                        fetchPriority="high"
                         style={{
                             height: '100%',
                             width: 'auto',
