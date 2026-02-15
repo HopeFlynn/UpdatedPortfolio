@@ -24,13 +24,13 @@ const Gallery: React.FC = () => {
                 { src: '/images/DLI 2025.jpg', label: 'Deep Learning Indaba Rwanda 2025' },
                 { src: '/images/Indaba.jpg', label: 'Deep Learning Indaba Rwanda ' },
                 { src: '/images/Google Cloud Roadshow.jpg', label: 'Google Cloud Roadshow Nairobi' },
-                { src: '/images/Google Cloud.png', label: 'Google Cloud Roadshow Nairobi Highlights' },
+                { src: '/images/Google Cloud.jpg', label: 'Google Cloud Roadshow Nairobi Highlights' },
                 { src: '/images/WIDS.jpg', label: 'Women in Data Science (WiDS)' },
                 { src: '/images/Devfest Pwani 2024.jpg', label: 'DevFest Pwani 2024' },
                 { src: '/images/GDG On Campus.jpg', label: 'GDG On Campus Event' },
-                { src: '/images/Dsa 2024 Kenya.png', label: 'Data Science Africa 2024 - Nyeri, Kenya' },
+                { src: '/images/Dsa 2024 Kenya.jpg', label: 'Data Science Africa 2024 - Nyeri, Kenya' },
                 { src: '/images/dsa 2024.jpg', label: 'Data Science Africa 2024 Highlights' },
-                { src: '/images/DSA 2023 Rwanda.png', label: 'Data Science Africa 2023 - Rwanda' },
+                { src: '/images/DSA 2023 Rwanda.jpg', label: 'Data Science Africa 2023 - Rwanda' },
                 { src: '/images/Kenya Innovation Week 2025.jpg', label: 'Kenya Innovation Week 2025' }
             ]
         },
