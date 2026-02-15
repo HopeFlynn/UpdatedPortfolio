@@ -39,7 +39,7 @@ const Gallery: React.FC = () => {
             images: [
                 { src: '/images/Speaking at DSA Nigeria.jpg', label: 'Presenting at Data Science Africa (DSA) in Nigeria' },
                 { src: '/images/Speaker.jpg', label: 'Inspiring the Next Gen' },
-                { src: '/images/GDG On Campus.jpg', label: 'Panel Discussion' },
+                { src: '/images/GDG On Campus.jpg', label: 'Panel discussion on Generative AI' },
                 { src: '/images/Speaker 4.jpg', label: 'Code With Purpose Bootcamp' },
             ]
         },

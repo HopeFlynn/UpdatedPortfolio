@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const About: React.FC = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 900);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <section id="about" style={{
             minHeight: '100vh',
-            padding: '6rem 5%',
+            padding: isMobile ? '4rem 1.5rem' : '6rem 5%',
             maxWidth: '1200px',
             margin: '0 auto',
             position: 'relative',
             overflow: 'hidden',
             display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '4rem',
+            gap: isMobile ? '3rem' : '4rem',
             flexWrap: 'wrap'
         }}>
             {/* Background Glow - Consistent with Hero */}
@@ -20,10 +29,16 @@ const About: React.FC = () => {
             <div className="glow-orb orb-1" style={{ width: '400px', height: '400px', top: '70%', left: '-10%', opacity: 0.2 }}></div>
 
             {/* Left Column: Who Am I Content */}
-            <div style={{ flex: '1 1 500px', position: 'relative', zIndex: 10 }}>
+            <div style={{
+                flex: isMobile ? '1 1 auto' : '1 1 500px',
+                width: isMobile ? '100%' : 'auto',
+                position: 'relative',
+                zIndex: 10,
+                textAlign: isMobile ? 'center' : 'left'
+            }}>
 
                 <h2 style={{
-                    fontSize: '3.5rem',
+                    fontSize: isMobile ? '2.5rem' : '3.5rem',
                     color: 'white',
                     fontFamily: 'serif',
                     marginBottom: '2rem',
@@ -78,7 +93,7 @@ const About: React.FC = () => {
                 {/* Skills Section - Tech Stack */}
                 <div style={{ marginTop: '2rem' }}>
                     <h3 style={{ fontSize: '1.5rem', color: '#fbcfe8', marginBottom: '1rem', fontFamily: 'serif' }}>MY TOOLKIT 🛠️</h3>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', justifyContent: isMobile ? 'center' : 'flex-start' }}>
                         {[
                             { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
                             { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
@@ -117,15 +132,28 @@ const About: React.FC = () => {
             </div>
 
             {/* Right Column: Overlapping Image Design */}
-            <div style={{ flex: '1 1 400px', position: 'relative', height: '500px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <div style={{ position: 'relative', width: '450px', height: '450px' }}>
+            <div style={{
+                flex: isMobile ? '1 1 auto' : '1 1 400px',
+                width: isMobile ? '100%' : 'auto',
+                position: 'relative',
+                height: isMobile ? '350px' : '500px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: isMobile ? '1rem' : '0'
+            }}>
+                <div style={{
+                    position: 'relative',
+                    width: isMobile ? '300px' : '450px',
+                    height: isMobile ? '300px' : '450px'
+                }}>
                     {/* Back Image (Top Left) */}
                     <div style={{
                         position: 'absolute',
                         top: '0',
                         left: '0',
-                        width: '280px',
-                        height: '280px',
+                        width: isMobile ? '180px' : '280px',
+                        height: isMobile ? '180px' : '280px',
                         zIndex: 1,
                         borderRadius: '20px',
                         overflow: 'hidden',
@@ -139,8 +167,8 @@ const About: React.FC = () => {
                         position: 'absolute',
                         bottom: '0',
                         right: '0',
-                        width: '280px',
-                        height: '280px',
+                        width: isMobile ? '180px' : '280px',
+                        height: isMobile ? '180px' : '280px',
                         zIndex: 2,
                         borderRadius: '20px',
                         overflow: 'hidden',

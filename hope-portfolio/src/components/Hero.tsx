@@ -14,6 +14,14 @@ const Hero: React.FC = () => {
         }
     }, [terminalOutput]);
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 900);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const handleCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             let cmd = terminalInput.trim().toLowerCase();
@@ -89,28 +97,32 @@ const Hero: React.FC = () => {
 
     return (
         <section id="hero" style={{
-            height: '100vh',
+            height: isMobile ? 'auto' : '100vh',
+            minHeight: '100vh',
             width: '100%',
             position: 'relative',
             overflow: 'hidden',
-            padding: '0 5%',
+            padding: isMobile ? '80px 1rem 2rem' : '0 5%',
             background: '#2D1B3D',
             color: 'white',
             display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
             alignItems: 'center',
-            justifyContent: 'space-between'
+            justifyContent: isMobile ? 'center' : 'space-between',
+            gap: isMobile ? '2rem' : '0'
         }}>
             {/* Rotating Badge - Now on the Left Side */}
             <div style={{
                 position: 'absolute',
-                top: '15%',
-                left: '2%', // Pushed to the left edge
+                top: isMobile ? '2%' : '15%',
+                left: isMobile ? '50%' : '2%', // Pushed to the left edge
+                transform: isMobile ? 'translateX(-50%)' : 'none',
                 zIndex: 30,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width: '180px',
-                height: '180px',
+                width: isMobile ? '100px' : '180px',
+                height: isMobile ? '100px' : '180px',
             }}>
                 <div style={{
                     position: 'absolute',
@@ -127,20 +139,24 @@ const Hero: React.FC = () => {
                         </text>
                     </svg>
                 </div>
-                <div style={{ fontSize: '3rem', animation: 'pulse 2s ease-in-out infinite' }}>💖</div>
+                <div style={{ fontSize: isMobile ? '2rem' : '3rem', animation: 'pulse 2s ease-in-out infinite' }}>💖</div>
             </div>
 
             {/* Left Content Side */}
             <div style={{
-                flex: '1 1 50%',
+                flex: isMobile ? 'none' : '1 1 50%',
+                width: isMobile ? '100%' : 'auto',
+                order: isMobile ? 2 : 1,
                 zIndex: 20,
                 textAlign: 'left',
-                paddingLeft: '5%', // Add padding to not overlap with badge
+                paddingLeft: isMobile ? '0' : '5%', // Add padding to not overlap with badge
                 animation: 'fadeInLeft 1.5s ease-out',
-                alignSelf: 'flex-end', // Align this container to the bottom
-                paddingBottom: '8%' // Give it some space from the bottom edge
+                alignSelf: isMobile ? 'center' : 'flex-end', // Align this container to the bottom
+                paddingBottom: isMobile ? '0' : '8%', // Give it some space from the bottom edge
+                display: 'flex',
+                justifyContent: 'center'
             }}>
-                <div style={{ maxWidth: '600px' }}>
+                <div style={{ maxWidth: '600px', width: '100%' }}>
 
                     {/* Terminal Command Prompt */}
                     <div style={{
@@ -155,7 +171,8 @@ const Hero: React.FC = () => {
                         width: '100%',
                         boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
                         animation: 'fadeInUp 2s ease-out',
-                        fontSize: '0.9rem'
+                        fontSize: '0.9rem',
+                        margin: isMobile ? '0 auto' : '2rem 0 0 0'
                     }}>
                         <div
                             ref={outputRef}
@@ -197,13 +214,16 @@ const Hero: React.FC = () => {
 
             {/* Right Side: Image Pushed to the Edge */}
             <div style={{
-                flex: '1 1 50%',
+                flex: isMobile ? 'none' : '1 1 50%',
+                width: isMobile ? '100%' : 'auto',
+                order: isMobile ? 1 : 2,
                 position: 'relative',
-                height: '100%',
+                height: isMobile ? '400px' : '100%',
                 display: 'flex',
                 alignItems: 'flex-end',
-                justifyContent: 'flex-end', // Push to edge
-                zIndex: 10
+                justifyContent: isMobile ? 'center' : 'flex-end', // Push to edge
+                zIndex: 10,
+                marginTop: isMobile ? '2rem' : '0'
             }}>
                 {/* Drifting Code Snippets - Background */}
                 <div style={{ position: 'absolute', top: '10%', right: '60%', color: 'rgba(244, 114, 182, 0.2)', fontFamily: 'monospace', fontSize: '1.2rem', animation: 'float 8s ease-in-out infinite' }}>&lt;Code /&gt;</div>
@@ -214,7 +234,8 @@ const Hero: React.FC = () => {
                 <div style={{
                     position: 'absolute',
                     top: '20%',
-                    right: '10%',
+                    right: isMobile ? '50%' : '10%',
+                    transform: isMobile ? 'translateX(50%)' : 'none',
                     width: '400px',
                     height: '400px',
                     borderRadius: '50%',
@@ -248,12 +269,12 @@ const Hero: React.FC = () => {
                 {/* Social Links Row - Bottom of Photo */}
                 <div style={{
                     position: 'absolute',
-                    bottom: '5%',
+                    bottom: isMobile ? '-0.5rem' : '5%', // Adjusted to be visible below image on mobile
                     left: '0',
                     width: '100%',
                     display: 'flex',
                     justifyContent: 'center',
-                    gap: '1rem',
+                    gap: isMobile ? '0.5rem' : '1rem',
                     zIndex: 30,
                     flexWrap: 'wrap',
                     padding: '0 1rem'
@@ -286,7 +307,7 @@ const Hero: React.FC = () => {
 
                 {/* Resume Button - Top Right Above Head */}
                 <a href="/resume.pdf" download="Hope_Mwangi_Resume"
-                    style={{ position: 'absolute', top: '15%', right: '20%', zIndex: 20, padding: '0.6rem 1.2rem', background: 'linear-gradient(90deg, #f472b6, #a78bfa)', borderRadius: '25px', color: 'white', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 'bold', boxShadow: '0 4px 15px rgba(244, 114, 182, 0.4)', transition: 'transform 0.3s', animation: 'float 6s ease-in-out infinite' }}
+                    style={{ position: 'absolute', top: '15%', right: isMobile ? '5%' : '20%', zIndex: 20, padding: isMobile ? '0.5rem 1rem' : '0.6rem 1.2rem', background: 'linear-gradient(90deg, #f472b6, #a78bfa)', borderRadius: '25px', color: 'white', textDecoration: 'none', fontSize: isMobile ? '0.8rem' : '0.9rem', fontWeight: 'bold', boxShadow: '0 4px 15px rgba(244, 114, 182, 0.4)', transition: 'transform 0.3s', animation: 'float 6s ease-in-out infinite' }}
                     onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)'}
                     onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0) scale(1)'}>
                     Resume 📄
@@ -294,11 +315,11 @@ const Hero: React.FC = () => {
 
                 {/* Image Container */}
                 <div style={{
-                    height: '92%', // Slightly taller
+                    height: isMobile ? '100%' : '92%', // Slightly taller
                     width: 'auto',
                     display: 'flex',
                     alignItems: 'flex-end',
-                    justifyContent: 'flex-end',
+                    justifyContent: isMobile ? 'center' : 'flex-end',
                     animation: 'fadeInRight 1.5s ease-out'
                 }}>
                     <img
