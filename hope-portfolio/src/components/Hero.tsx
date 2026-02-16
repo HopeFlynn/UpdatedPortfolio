@@ -101,15 +101,15 @@ const Hero: React.FC = () => {
             minHeight: '100vh',
             width: '100%',
             position: 'relative',
-            overflow: 'hidden',
-            padding: isMobile ? '80px 1rem 2rem' : '0 5%',
+            overflowX: 'hidden', // Allow vertical scroll but prevent horizontal
+            padding: isMobile ? '80px 1rem 4rem' : '0 5%', // Increased bottom padding for mobile
             background: '#2D1B3D',
             color: 'white',
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
             alignItems: 'center',
-            justifyContent: isMobile ? 'center' : 'space-between',
-            gap: isMobile ? '2rem' : '0'
+            justifyContent: isMobile ? 'flex-start' : 'space-between', // Changed to flex-start for mobile to avoid centering issues
+            gap: isMobile ? '1rem' : '0'
         }}>
             {/* Rotating Badge - Now on the Left Side */}
             <div style={{
@@ -150,11 +150,11 @@ const Hero: React.FC = () => {
                 zIndex: 20,
                 textAlign: 'left',
                 paddingLeft: isMobile ? '0' : '5%', // Add padding to not overlap with badge
-                animation: 'fadeInLeft 1.5s ease-out',
+                animation: 'fadeInLeft 0.8s ease-out',
                 alignSelf: isMobile ? 'center' : 'flex-end', // Align this container to the bottom
                 paddingBottom: isMobile ? '0' : '8%', // Give it some space from the bottom edge
                 display: 'flex',
-                justifyContent: 'center'
+                justifyContent: isMobile ? 'flex-start' : 'center'
             }}>
                 <div style={{ maxWidth: '600px', width: '100%' }}>
 
@@ -170,9 +170,9 @@ const Hero: React.FC = () => {
                         maxWidth: '450px',
                         width: '100%',
                         boxShadow: '0 8px 20px rgba(0, 0, 0, 0.2)',
-                        animation: 'fadeInUp 2s ease-out',
+                        animation: 'fadeInUp 0.8s ease-out',
                         fontSize: '0.9rem',
-                        margin: isMobile ? '0 auto' : '2rem 0 0 0'
+                        margin: '2rem 0 0 0'
                     }}>
                         <div
                             ref={outputRef}
@@ -188,20 +188,23 @@ const Hero: React.FC = () => {
                                 <div key={i} style={{ marginBottom: '4px' }}>{line}</div>
                             ))}
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '0.5rem' }}>
-                            <span style={{ color: '#f472b6', marginRight: '10px', fontWeight: 'bold' }}>visitor@hope-portfolio:~$</span>
+                        <div style={{ display: 'flex', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '0.5rem', flexWrap: 'wrap' }}>
+                            <span style={{ color: '#f472b6', marginRight: '10px', fontWeight: 'bold', whiteSpace: 'nowrap' }}>
+                                {isMobile ? 'visitor@~$' : 'visitor@hope-portfolio:~$'}
+                            </span>
                             <input
                                 type="text"
                                 value={terminalInput}
                                 onChange={(e) => setTerminalInput(e.target.value)}
                                 onKeyDown={handleCommand}
-                                placeholder="type command (e.g. /projects)..."
+                                placeholder="type command..."
                                 style={{
                                     background: 'transparent',
                                     border: 'none',
                                     color: 'white',
                                     fontFamily: 'inherit',
-                                    width: '100%',
+                                    flex: '1',
+                                    minWidth: '120px',
                                     outline: 'none',
                                     fontSize: '0.9rem'
                                 }}
@@ -218,7 +221,8 @@ const Hero: React.FC = () => {
                 width: isMobile ? '100%' : 'auto',
                 order: isMobile ? 1 : 2,
                 position: 'relative',
-                height: isMobile ? '400px' : '100%',
+                height: isMobile ? '40vh' : '100%', // Reduced height on mobile to save space
+                maxHeight: isMobile ? '400px' : 'none',
                 display: 'flex',
                 alignItems: 'flex-end',
                 justifyContent: isMobile ? 'center' : 'flex-end', // Push to edge
@@ -320,7 +324,7 @@ const Hero: React.FC = () => {
                     display: 'flex',
                     alignItems: 'flex-end',
                     justifyContent: isMobile ? 'center' : 'flex-end',
-                    animation: 'fadeInRight 1.5s ease-out'
+                    animation: 'fadeInRight 0.8s ease-out'
                 }}>
                     <img
                         src="/images/profile.png"
